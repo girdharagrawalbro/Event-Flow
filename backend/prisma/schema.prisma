@@ -1,0 +1,70 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = "postgresql://neondb_owner:npg_6ac2HvFbeAko@ep-divine-violet-a46z1838-pooler.us-east-1.aws.neon.tech/neondb?sslmode=require"
+}
+
+model User {
+  id            Int            @id @default(autoincrement())
+  name          String
+  email         String         @unique
+  password      String
+  role          String
+  createdAt     DateTime       @default(now())
+  events        Event[]        @relation("OrganizerEvents")
+  registrations Registration[]
+  feedbacks     Feedback[]
+  responded     Boolean        @default(false)
+
+  auditLogs AuditLog[]
+}
+
+model AuditLog {
+  id        String   @id @default(uuid())
+  action    String
+  userId    Int
+  user      User     @relation(fields: [userId], references: [id])
+  createdAt DateTime @default(now())
+}
+
+model Event {
+  id            Int            @id @default(autoincrement())
+  title         String
+  description   String
+  date          DateTime
+  location      String
+  organizer     User           @relation("OrganizerEvents", fields: [organizerId], references: [id])
+  organizerId   Int
+  createdAt     DateTime       @default(now())
+  score         Int            @default(0)
+  registrations Registration[]
+  feedbacks     Feedback[]
+}
+
+model Registration {
+  id         Int      @id @default(autoincrement())
+  attendee   User     @relation(fields: [attendeeId], references: [id])
+  attendeeId Int
+  event      Event    @relation(fields: [eventId], references: [id])
+  eventId    Int
+  confirmed  Boolean  @default(false)
+  createdAt  DateTime @default(now())
+}
+
+model Feedback {
+  id      Int    @id @default(autoincrement())
+  rating  Int
+  comment String
+  event   Event  @relation(fields: [eventId], references: [id])
+  eventId Int
+  user    User   @relation(fields: [userId], references: [id])
+  userId  Int
+}
+
+enum Role {
+  attendee
+  organizer
+}

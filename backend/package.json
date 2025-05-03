@@ -1,22 +1,36 @@
 {
-  "name": "backend",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "type": "module",
-  "dependencies": {
-    "cors": "^2.8.5",
-    "dotenv": "^16.5.0",
-    "express": "^5.1.0",
-    "mysql": "^2.18.1",
-    "mysql2": "^3.14.0",
-    "path": "^0.12.7",
-    "socket.io": "^4.8.1"
-  }
+    "name": "backend",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.ts",
+    "scripts": {
+        "build": "prisma generate",
+        "start": "node src/index.ts",
+        "dev": "ts-node src/index.ts",
+        "postinstall": "npx prisma generate"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "@prisma/client": "^6.6.0",
+        "@types/jsonwebtoken": "^9.0.9",
+        "bcrypt": "^5.1.1",
+        "cors": "^2.8.5",
+        "dotenv": "^16.5.0",
+        "express": "^5.1.0",
+        "jsonwebtoken": "^9.0.2",
+        "mysql": "^2.18.1",
+        "mysql2": "^3.14.0",
+        "path": "^0.12.7",
+        "socket.io": "^4.8.1",
+        "socket.io-client": "^4.8.1"
+    },
+    "devDependencies": {
+        "@types/bcrypt": "^5.0.2",
+        "@types/express": "^5.0.1",
+        "prisma": "^6.6.0",
+        "ts-node": "^10.9.2",
+        "typescript": "^5.8.3"
+    }
 }
