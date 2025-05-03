@@ -1,18 +1,28 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
+
+import { Toaster } from "react-hot-toast";
+
+// Pages
 import Home from "./pages/Home";
 import Dashboard from "./pages/Dashboard";
-import Contact from "./pages/Contact";
+
+// Components
 import Navbar from "./components/Navbar";
+import Notifications from "./components/Notification";
 
 const App: React.FC = () => {
   return (
-    <Routes>
+    <>
       <Navbar />
-      <Route path="/" element={<Home />} />
-      <Route path="/about" element={<Dashboard />} />
-      <Route path="/contact" element={<Contact />} />
-    </Routes>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/dashboard/*" element={<Dashboard />} />
+      </Routes>
+      <Toaster position="top-center" reverseOrder={false} />
+      <Notifications />
+
+    </>
   );
 };
 

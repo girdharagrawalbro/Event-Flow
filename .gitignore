@@ -5,11 +5,11 @@ backend/dist/
 backend/.DS_Store
 
 # React (frontend)
-front/node_modules/
-front/.env
-front/.DS_Store
-front/dist/
-front/build/
+frontend/node_modules/
+frontend/.env
+frontend/.DS_Store
+frontend/dist/
+frontend/build/
 
 # Logs
 *.log
