@@ -15,7 +15,7 @@ const AuthContainer: React.FC<AuthContainerProps> = ({ onSuccess }) => {
     onSuccess?.();
     return null // This will collapse the form after successful auth
   }
-
+  
   return (
     <div className='flex justify-center items-center min-h-[400px]'>
       {' '}

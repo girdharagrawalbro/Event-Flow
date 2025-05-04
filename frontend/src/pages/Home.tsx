@@ -7,6 +7,7 @@ import { ContainerScroll } from "@/components/ui/container-scroll-animation";
 import { cn } from "@/lib/utils";
 import toast from "react-hot-toast";
 import TrueFocus from "@/ui/TrueFocus/TrueFocus";
+import { Link } from "react-router-dom";
 const Home = () => {
   interface Event {
     id: string;
@@ -38,8 +39,6 @@ const Home = () => {
           return eventDate > today;
         });
 
-        console.log("Fetched future events:", futureEvents);
-        console.log("Number of future events:", futureEvents.length);
         setEvents(futureEvents);
       }
       catch (error) {
@@ -81,6 +80,7 @@ const Home = () => {
             <p className="text-muted-foreground">No upcoming events found</p>
           ) : (
             events.map((event) => (
+              <Link to={"/dashboard/home"}>
               <div className="max-w-xs w-full group/card" key={event.id}>
                 <div
                   className={cn(
@@ -114,11 +114,11 @@ const Home = () => {
                     </p>
                     <h6 className="text-white">
                       {new Date(event.date).toLocaleDateString()}
-
                     </h6>
                   </div>
                 </div>
               </div>
+              </Link>
             ))
           )
           }
@@ -241,12 +241,16 @@ const Home = () => {
               using our platform
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Link to={"/"}>
               <button className="px-8 py-3 rounded-lg bg-gradient-to-r from-blue-500 to-teal-500 text-white font-medium hover:opacity-90 transition-opacity">
                 Attend
               </button>
+              </Link>
+<Link to={"/"}>
               <button className="px-8 py-3 rounded-lg border border-slate-600 text-white font-medium hover:bg-slate-800 transition-colors">
                 Become Organizer
               </button>
+              </Link>
             </div>
           </div>
         </div>

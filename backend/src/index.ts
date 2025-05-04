@@ -20,7 +20,7 @@ const server = http.createServer(app);
 
 // Configure CORS for Express
 const corsOptions = {
-  origin: "http://localhost:5173", // Your frontend origin
+  origin: "https://eventflow-code.netlify.app/", 
   credentials: true,
 };
 

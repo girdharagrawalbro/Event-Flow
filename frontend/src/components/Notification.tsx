@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react';
 import { toast } from 'react-hot-toast';
-import 'react-toastify/dist/ReactToastify.css';
 import socket from '../socket';
 
 interface Event {
