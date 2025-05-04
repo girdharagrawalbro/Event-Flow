@@ -255,6 +255,39 @@ const Home = () => {
           </div>
         </div>
       </section>
+      <footer className="bg-gray-900 text-white py-8 px-4">
+  <div className="max-w-6xl mx-auto">
+    <div className="flex flex-col md:flex-row justify-between items-center">
+      <div className="mb-4 md:mb-0">
+        <h2 className="text-2xl font-bold tracking-tight">EventFlow @2025</h2>
+        <p className="text-gray-400 mt-1">Your premier event management solution</p>
+      </div>
+      
+      <div className="flex flex-col items-center md:items-end">
+        <h3 className="text-lg font-medium mb-2">Follow Us</h3>
+        <div className="flex space-x-4">
+          <a href="https://codewithgirdhar.great-site.net/" target="_blank"  className="text-gray-400 hover:text-white transition-colors">
+            @codewithgirdhar
+          </a>
+          <a href="https://girdharagrawal.netlify.app/" target="_blank" className="text-gray-400 hover:text-white transition-colors">
+            Portfolio
+          </a>
+          <a href="https://www.linkedin.com/in/girdhar-agrawal-124346220/" target="_blank" className="text-gray-400 hover:text-white transition-colors">
+            Linkdin
+          </a>
+          <a href="https://github.com/girdharagrawalbro" target="_blank" className="text-gray-400 hover:text-white transition-colors">
+            GitHub
+          </a>
+        </div>
+      </div>
+    </div>
+    
+    <div className="border-t border-gray-800 mt-6 pt-6 text-sm text-gray-500 text-center">
+      <p>© 2025 EventFlow. All rights reserved.</p>
+     
+    </div>
+  </div>
+</footer>
     </>
   );
 };

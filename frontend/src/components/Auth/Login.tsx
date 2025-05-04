@@ -85,7 +85,7 @@ const Login = ({ onSuccess }: LoginProps) => {
                 value={email}
                 placeholder='you@example.com'
                 onChange={e => setEmail(e.target.value)}
-                className='dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400'
+                className='bg-gray-50 dark:bg-gray-700 text-gray-700 dark:text-gray-100 border-gray-300 dark:border-gray-600 placeholder-gray-400'
               />
             </div>
             <div className='flex flex-col space-y-1.5'>
@@ -97,11 +97,14 @@ const Login = ({ onSuccess }: LoginProps) => {
                 value={password}
                 onChange={e => setPassword(e.target.value)}
                 placeholder='••••••••'
-                className='dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400'
+                className='bg-gray-50 dark:bg-gray-700 text-gray-700 dark:text-gray-100 border-gray-300 dark:border-gray-600 placeholder-gray-400'
               />
             </div>
             <CardFooter className='flex justify-end p-0'>
-              <Button type='submit' className='w-full'>
+              <Button
+                type='submit'
+                className='bg-blue-600 hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600 text-white w-full'
+              >
                 Login
               </Button>
             </CardFooter>

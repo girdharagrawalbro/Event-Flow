@@ -20,16 +20,22 @@ const server = http.createServer(app);
 
 // Configure CORS for Express
 const corsOptions = {
-  origin: "https://eventflow-code.netlify.app", 
+  origin: [
+    "https://eventflow-code.netlify.app",
+    "https://event-flow-eight.vercel.app"
+  ],
   credentials: true,
 };
 
 app.use(cors(corsOptions));
 
-// Configure Socket.IO with the same CORS origin
+// Configure Socket.IO with the same CORS origins
 const io = new Server(server, {
   cors: {
-    origin: "https://eventflow-code.netlify.app", 
+    origin: [
+      "https://eventflow-code.netlify.app",
+      "https://event-flow-eight.vercel.app"
+    ],
     methods: ["GET", "POST"],
     credentials: true
   },
@@ -41,12 +47,12 @@ app.use(express.json());
 // Socket.io connection
 io.on("connection", (socket) => {
   console.log("A user connected");
-  
+
   socket.on("register", (data) => {
     console.log("Attendee registered:", data);
     io.emit("notification", `${data.email} has registered for an event.`);
   });
-  
+
   socket.on("disconnect", () => {
     console.log("User disconnected");
   });
@@ -70,5 +76,5 @@ app.use("/api/registrations", registrationRoutes);
 
 // Start server
 server.listen(5000, () => {
-  console.log("Server is running on port 5000 with no errors");
+  console.log("Server is running on desired port ");
 });

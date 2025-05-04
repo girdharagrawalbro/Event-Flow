@@ -15,18 +15,18 @@ const Navbar = () => {
         <div className='logo text-9xl tracking-widest font-bold'>
           <TextPressure text='Event Flow' />
         </div>
-        <div className='space-x-4 flex gap-3'>
+        <div className='space-x-4 flex gap-3 text-white'>
           <Link to={'/'}>
-            <Button className="bg-white">Home</Button>
+            <Button className="bg-gray-800">Home</Button>
           </Link>
           <Link to={'/dashboard/home'}>
-            <Button className="border-white border text-white">Dashboard</Button>
+            <Button className="bg-gray-800">Dashboard</Button>
           </Link>
 
           {!storedUser && (
             <Dialog open={open} onOpenChange={setOpen}>
               <DialogTrigger asChild>
-                <Button variant='default'>Login / Register</Button>
+                <Button variant='default'className="bg-gray-800 text-white">Login / Register</Button>
               </DialogTrigger>
               <DialogContent className='sm:max-w-[425px] bg-white dark:bg-gray-800 p-0'>
                 <AuthContainer onSuccess={() => setOpen(false)} />

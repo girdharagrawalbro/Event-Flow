@@ -17,7 +17,7 @@ const AuthContainer: React.FC<AuthContainerProps> = ({ onSuccess }) => {
   }
   
   return (
-    <div className='flex justify-center items-center min-h-[400px]'>
+    <div className='flex justify-center items-center py-4  rounded-xl'>
       {' '}
       {/* Added min-height and centered */}
       <Tabs
@@ -25,9 +25,9 @@ const AuthContainer: React.FC<AuthContainerProps> = ({ onSuccess }) => {
         onValueChange={setActiveTab}
         className='w-[400px]'
       >
-        <TabsList className='grid w-full grid-cols-2'>
-          <TabsTrigger value='login'>Login</TabsTrigger>
-          <TabsTrigger value='register'>Register</TabsTrigger>
+        <TabsList className='grid w-full grid-cols-2 text-white bg-gray-100 dark:bg-gray-700'>
+          <TabsTrigger value='login' className="data-[state=active]:bg-blue-600 data-[state=active]:text-white dark:data-[state=active]:bg-blue-500 dark:text-gray-300">Login</TabsTrigger>  
+          <TabsTrigger value='register' className="data-[state=active]:bg-blue-600 data-[state=active]:text-white dark:data-[state=active]:bg-blue-500 dark:text-gray-300">Register</TabsTrigger>
         </TabsList>
         <TabsContent value='login'>
           <Login onSuccess={() => setIsAuthenticated(true)} />
