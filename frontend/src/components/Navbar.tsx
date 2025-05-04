@@ -17,10 +17,10 @@ const Navbar = () => {
         </div>
         <div className='space-x-4 flex gap-3'>
           <Link to={'/'}>
-            <Button>Home</Button>
+            <Button className="bg-white">Home</Button>
           </Link>
           <Link to={'/dashboard/home'}>
-            <Button>Dashboard</Button>
+            <Button className="border-white border text-white">Dashboard</Button>
           </Link>
 
           {!storedUser && (

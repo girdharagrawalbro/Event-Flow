@@ -77,7 +77,7 @@ const Home = () => {
 
         <div className="mt-13 flex items-center justify-center">
           {events.length == 0 ? (
-            <p className="text-muted-foreground">No upcoming events found</p>
+            <p className="text-slate-400">No upcoming events found</p>
           ) : (
             events.map((event) => (
               <Link to={"/dashboard/home"}>
